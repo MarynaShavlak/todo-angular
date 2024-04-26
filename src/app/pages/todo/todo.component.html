@@ -1,0 +1,54 @@
+<div *ngIf="!loading">
+  <div class="container">
+    <div class="filter">
+      <input
+        type="text"
+        placeholder="Filter..."
+        class="input"
+        [(ngModel)]="searchStr"
+      />
+    </div>
+    <ul
+      *ngIf="todosService.todos.length; else noTodos"
+      class="flex flex-col gap-2 text-rose-50"
+    >
+      <li
+        *ngFor="
+          let todo of todosService.todos | todosFilter : searchStr;
+          let i = index
+        "
+        class="border border-rose-50 rounded-md px-2 py-3 flex justify-between align-center"
+      >
+        <div class="flex items-center">
+          <span [class.done]="todo.completed">
+            <span class="flex items-center">
+              <input
+                [checked]="todo.completed"
+                [id]="'checkbox' + i"
+                type="checkbox"
+                class="w-4 h-4 accent-rose-800 rounded-full border"
+              />
+              <label [for]="'checkbox' + i" class="ms-2 text-sm font-medium">
+                <b>{{ i + 1 }}</b>
+                {{ todo.title }}
+              </label>
+            </span>
+          </span>
+        </div>
+        <button
+          class="btn bg-rose-100 text-rose-800 transition-colors w-6 h-6 font-bold hover:text-rose-50 hover:bg-rose-800"
+          (click)="removeTodo(todo.id)"
+        >
+          x
+        </button>
+      </li>
+    </ul>
+    <ng-template #noTodos>
+      <p class="text-rose-100 text-center text-xl font-bold">
+        Todos list is empty...
+      </p>
+    </ng-template>
+  </div>
+</div>
+
+<p *ngIf="loading">Loading...</p>

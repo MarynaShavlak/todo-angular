@@ -1,0 +1,16 @@
+
+.menu-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    width: 100%;
+    color: white;
+    .logo{
+        font-size: bold;
+        font-size: 25px;
+    }
+    .menu{
+        align-items: center;
+    }
+}

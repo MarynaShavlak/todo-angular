@@ -1,0 +1,24 @@
+.item-li{
+border: 1px solid gray;
+border-radius: 5px;
+padding: 10px;
+margin-bottom: 10px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+ul{
+ width: 600px;
+ margin: 50px auto;
+
+}
+.done{
+    text-decoration: line-through;
+}
+.filter{
+    width: 600px;
+    margin: 50px auto;
+    input{
+        width: 100%;
+    }
+}

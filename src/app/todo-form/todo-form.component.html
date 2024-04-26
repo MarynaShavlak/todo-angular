@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="flex justify-center m-auto w-1/2">
+    <input
+      type="text"
+      placeholder="Type your to-do item... "
+      class="p-2 mt-5 w-2/3"
+      [(ngModel)]="title"
+      (keydown.enter)="addTodo()"
+    />
+    <button
+      (click)="addTodo()"
+      class="btn bg-rose-800 hover:bg-rose-50 hover:text-rose-800 ml-5 mt-5 px-10 transition-colors"
+    >
+      Add
+    </button>
+  </div>
+</div>
