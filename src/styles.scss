@@ -14,17 +14,17 @@ body{
 }
 @layer components{
     .input{
-        @apply rounded-sm outline-none text-black p-2;
+        @apply rounded-sm outline-none text-zinc-900 p-2;
     }
     .btn{
-        @apply rounded-sm text-white
+        @apply rounded-sm text-rose-100;
     }
 }
 @layer utilities{
     .btn-green {
         @apply bg-green-600 hover:bg-green-800 p-2;
     }
-    .btn-red {
-        @apply bg-red-600 hover:bg-red-800 p-2;
+    .btn-confirm {
+        @apply bg-rose-800 text-rose-100 border-rose-800 hover:bg-rose-100 hover:text-rose-800 p-2;
     }
 }
