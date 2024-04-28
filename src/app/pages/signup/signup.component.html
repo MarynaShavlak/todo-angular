@@ -1,1 +1,96 @@
-<p>signup works!</p>
+<form
+  [formGroup]="userData"
+  (ngSubmit)="onSubmit()"
+  class="max-w-[500px] border mx-auto p-5 flex flex-col gap-5 rounded-md mt-10 bg-rose-50"
+>
+  <h1 class="text-center font-bold text-2xl">Signup Form</h1>
+  <div class="flex flex-col w-2/3 mx-auto">
+    <label for="email" class="label-form">Name</label>
+    <input
+      required
+      formControlName="name"
+      type="text"
+      class="input p-1 rounded-md shadow-xl animate-pulse"
+      id="name"
+      placeholder="Enter your name..."
+    />
+    <div
+      *ngIf="
+        userData.controls['name'].invalid &&
+        (userData.controls['name'].dirty || userData.controls['email'].touched)
+      "
+      class="text-rose-800 text-xs mt-2"
+    >
+      <div *ngIf="userData.controls['email'].hasError('required')">
+        Name is required
+      </div>
+      <div *ngIf="userData.controls['email'].hasError('minlength')">
+        Password should be not less then 2 symbols
+      </div>
+    </div>
+  </div>
+
+  <div class="flex flex-col w-2/3 mx-auto">
+    <label for="email" class="label-form">Email</label>
+    <input
+      required
+      formControlName="email"
+      type="Email"
+      class="input p-1 rounded-md shadow-xl animate-pulse"
+      id="email"
+      placeholder="Enter e-mail..."
+    />
+    <div
+      *ngIf="
+        userData.controls['email'].invalid &&
+        (userData.controls['email'].dirty || userData.controls['email'].touched)
+      "
+      class="text-rose-800 text-xs mt-2"
+    >
+      <div *ngIf="userData.controls['email'].hasError('required')">
+        Email is required
+      </div>
+      <div *ngIf="userData.controls['email'].hasError('email')">
+        Email is not correct
+      </div>
+    </div>
+  </div>
+  <div class="flex flex-col w-2/3 mx-auto">
+    <label for="password" class="label-form">Password</label>
+    <input
+      required
+      formControlName="password"
+      type="password"
+      class="input p-1 rounded-md shadow-xl"
+      id="Password"
+      placeholder="Enter password..."
+    />
+    <div
+      *ngIf="
+        userData.controls['password'].invalid &&
+        (userData.controls['password'].dirty ||
+          userData.controls['password'].touched)
+      "
+      class="text-rose-800 text-xs mt-2"
+    >
+      <div *ngIf="userData.controls['password'].hasError('required')">
+        Password is required
+      </div>
+      <div *ngIf="userData.controls['password'].hasError('minlength')">
+        Password should be not less then 7 symbols
+      </div>
+    </div>
+  </div>
+  <div class="flex gap-20 mx-auto">
+    <button
+      class="btn-confirm border p-3 rounded-md shadow-xl transition-colors"
+    >
+      Confirm
+    </button>
+    <button
+      class="border border-rose-800 p-3 rounded-md shadow-xl hover:bg-rose-800 hover:text-rose-100 transition-colors"
+    >
+      Cancel
+    </button>
+  </div>
+</form>

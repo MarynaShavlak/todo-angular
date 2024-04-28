@@ -1,5 +1,6 @@
 <div *ngIf="!loading">
   <div class="container">
+    <app-todo-form></app-todo-form>
     <div class="filter">
       <input
         type="text"
@@ -20,19 +21,18 @@
         class="border border-rose-50 rounded-md px-2 py-3 flex justify-between align-center"
       >
         <div class="flex items-center">
-          <span [class.done]="todo.completed">
-            <span class="flex items-center">
-              <input
-                [checked]="todo.completed"
-                [id]="'checkbox' + i"
-                type="checkbox"
-                class="w-4 h-4 accent-rose-800 rounded-full border"
-              />
-              <label [for]="'checkbox' + i" class="ms-2 text-sm font-medium">
-                <b>{{ i + 1 }}</b>
-                {{ todo.title }}
-              </label>
-            </span>
+          <span class="flex items-center" [class.done]="todo.completed">
+            <input
+              [checked]="todo.completed"
+              [id]="'checkbox' + i"
+              type="checkbox"
+              (change)="onChange(todo.id)"
+              class="w-4 h-4 accent-rose-800 rounded-full border"
+            />
+            <label [for]="'checkbox' + i" class="ms-2 text-sm font-medium">
+              <b>{{ i + 1 }}</b>
+              {{ todo.title }}
+            </label>
           </span>
         </div>
         <button
